@@ -19,22 +19,39 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class GameOver extends JFrame {
-    
-    private  GameGUI gameGUI;
+
+    private GameGUI gameGUI;
+    private String winner;
 
     public GameOver(String winner, GameGUI gameGUI) {
         this.gameGUI = gameGUI;
+        this.winner = winner;
         this.setTitle("GAMEOVER");
         this.setSize(500, 550);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        
+
         // Creating main panel
         JPanel panel = new JPanel();
         panel.setPreferredSize(new Dimension(100, 40));
+
+        // Create components
+        JLabel backgroundImageLabel = this.createBackgroundImageLabel();
+        JLabel winnerLabel = this.createWinnerLable();
+        JButton rematchButton = this.createRematchButton();
+        JButton quitButton = this.createQuitButton();
         
-        // Creating label to add background image
+        // Add components to panel
+        panel.add(backgroundImageLabel);
+        panel.add(winnerLabel);
+        panel.add(rematchButton);
+        panel.add(quitButton);
+
+        this.add(panel);
+    }
+
+    private JLabel createBackgroundImageLabel() {
         JLabel label = new JLabel();
         Image img;
         try {
@@ -44,29 +61,32 @@ public class GameOver extends JFrame {
         } catch (IOException ex) {
             Logger.getLogger(GameOver.class.getName()).log(Level.SEVERE, null, ex);
         }
-        panel.add(label);
-        
-        // Creating a label for displaying winner
+        return label;
+    }
+
+    private JLabel createWinnerLable() {
         JLabel winnerLabel = new JLabel();
         winnerLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
         winnerLabel.setHorizontalAlignment(JLabel.CENTER);
         winnerLabel.setVerticalAlignment(JLabel.NORTH);
         winnerLabel.setPreferredSize(new Dimension(500, 60));
-        if (winner.equals("tie")) {
+        if (this.winner.equals("tie")) {
             winnerLabel.setText("It's a tie");
         } else {
-            winnerLabel.setText(winner + " has won the game!");
+            winnerLabel.setText(this.winner + " has won the game!");
         }
-        panel.add(winnerLabel);
-        
-        // Create rematch button
-        JButton b1 = new JButton("REMATCH");
-        b1.setForeground(Color.BLACK);
-        b1.setBackground(new Color(235, 3, 253));
-        b1.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
-        b1.setPreferredSize(new Dimension(100, 30));
-        b1.setFont(new Font("Tahoma", Font.BOLD, 14));
-        b1.addActionListener((ActionEvent e) -> {
+
+        return winnerLabel;
+    }
+
+    private JButton createRematchButton() {
+        JButton button = new JButton("REMATCH");
+        button.setForeground(Color.BLACK);
+        button.setBackground(new Color(235, 3, 253));
+        button.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
+        button.setPreferredSize(new Dimension(100, 30));
+        button.setFont(new Font("Tahoma", Font.BOLD, 14));
+        button.addActionListener((ActionEvent e) -> {
             this.gameGUI.dispose();
 
             // Dispose this gameover screen
@@ -75,22 +95,20 @@ public class GameOver extends JFrame {
             // Create new game screen
             new GameGUI(this.gameGUI.gameMode).setVisible(true);
         });
+        return button;
+    }
 
-        // Create quit button
-        JButton b2 = new JButton("QUIT");
-        b2.setForeground(Color.BLACK);
-        b2.setBackground(new Color(235, 3, 253));
-        b2.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
-        b2.setPreferredSize(new Dimension(100, 30));
-        b2.setFont(new Font("Tahoma", Font.BOLD, 14));
-        b2.addActionListener((ActionEvent e) -> {
+    private JButton createQuitButton() {
+        JButton button = new JButton("QUIT");
+        button.setForeground(Color.BLACK);
+        button.setBackground(new Color(235, 3, 253));
+        button.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
+        button.setPreferredSize(new Dimension(100, 30));
+        button.setFont(new Font("Tahoma", Font.BOLD, 14));
+        button.addActionListener((ActionEvent e) -> {
             this.gameGUI.dispose();
             this.dispose();
         });
-
-        panel.add(b1);
-        panel.add(b2);
-
-        this.add(panel);
+        return button;
     }
 }
