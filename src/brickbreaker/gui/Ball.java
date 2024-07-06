@@ -65,10 +65,6 @@ public class Ball extends JButton {
                     && this.y + this.getBALL_HEIGHT() >= base.y
                     && this.y + this.getBALL_HEIGHT() <= base.y + base.getBASE_HEIGHT()) {
                 this.yVelocity *= -1;
-
-                if (this.x > 400) {
-                    this.xVelocity *= -1;
-                }
                 this.lastCollisionTime = currentTime;
 
             } // CHECK COLLISIONS WITH LEFT SIDE OF THE BASE
@@ -76,7 +72,6 @@ public class Ball extends JButton {
                     && this.x + this.getBALL_WIDTH() <= base.x + base.getBASE_WIDTH() / 4
                     && this.y >= base.y
                     && this.y <= base.y + base.getBASE_HEIGHT()) {
-                this.xVelocity *= -1;
                 this.yVelocity *= -1;
                 this.lastCollisionTime = currentTime;
 
@@ -85,7 +80,6 @@ public class Ball extends JButton {
                     && this.x >= base.x + base.getBASE_WIDTH() - base.getBASE_WIDTH() / 4
                     && this.y + this.getBALL_HEIGHT() >= base.y
                     && this.y + this.getBALL_HEIGHT() <= base.y + base.getBASE_HEIGHT()) {
-                this.xVelocity *= -1;
                 this.yVelocity *= -1;
                 this.lastCollisionTime = currentTime;
 
@@ -120,8 +114,8 @@ public class Ball extends JButton {
             } // BALL'S LEFT SIDE --> BRICK'S RIGHT SIDE
             else if (this.x <= bounds.x + bounds.width
                     && this.y >= bounds.y
-                    &&this.x >= bounds.x
-                    && this.y < bounds.y+bounds.height){
+                    && this.x >= bounds.x
+                    && this.y < bounds.y + bounds.height) {
                 System.out.println("Brick right collided");
                 iterator.remove();
                 this.xVelocity *= -1;
@@ -130,7 +124,7 @@ public class Ball extends JButton {
             else if (this.x >= bounds.x
                     && this.x <= bounds.x + bounds.width
                     && this.y + this.BALL_HEIGHT >= bounds.y
-                    && this.y + this.BALL_HEIGHT <= bounds.y + bounds.height){
+                    && this.y + this.BALL_HEIGHT <= bounds.y + bounds.height) {
                 System.out.println("Brick top collided");
                 iterator.remove();
                 this.yVelocity *= -1;
