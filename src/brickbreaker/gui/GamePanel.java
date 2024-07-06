@@ -3,14 +3,12 @@ package brickbreaker.gui;
 import brickbreaker.AudioPlayback;
 import brickbreaker.Settings;
 import brickbreaker.screens.GameOverSc;
-import brickbreaker.screens.SettingPage;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -72,6 +70,8 @@ public class GamePanel extends JPanel implements ActionListener {
 
         // Game settings
         gameSettings = Settings.getInstance();
+        System.out.println(gameSettings.isBackgroundMusicOn());
+        System.out.println(gameSettings.isSoundEffectsOn());
 
         // Start gameloop
         timer = new Timer(16, this);
@@ -100,7 +100,6 @@ public class GamePanel extends JPanel implements ActionListener {
         }
 
         this.checkGameover();
-
     }
 
     /**
@@ -113,9 +112,10 @@ public class GamePanel extends JPanel implements ActionListener {
     private void checkGameover() {
         if (ball.y >= 500) {
             timer.stop();
+            AudioPlayback.closeBackgroundMusic();
             JFrame frame = new JFrame();
             frame.setTitle("Settings");
-            frame.setSize(600, 400);
+            frame.setSize(760, 400);
             frame.add(new GameOverSc());
             frame.setLocationRelativeTo(null);
             frame.setVisible(true);

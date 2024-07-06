@@ -14,12 +14,12 @@ import javax.swing.JFrame;
  *
  * @author Lenovo
  */
-public class MainMenuScreen extends javax.swing.JFrame {
+public class BrickBreakerMainMenuScreen extends javax.swing.JFrame {
 
     /**
      * Creates new form MainMenu
      */
-    public MainMenuScreen() {
+    public BrickBreakerMainMenuScreen() {
         initComponents();
         BPLAY.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
         BSET.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));

@@ -13,14 +13,16 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class AudioPlayback {
+    
+    static AudioInputStream audioStream;
+    static Clip audioClip;
 
     public static void playMusic() {
-        AudioInputStream audioStream;
         try {
-            audioStream = AudioSystem.getAudioInputStream(new File("src/assets/bg-music.wav"));
+            audioStream = AudioSystem.getAudioInputStream(new File("src/assets/break.wav"));
             AudioFormat format = audioStream.getFormat();
             DataLine.Info info = new DataLine.Info(Clip.class, format);
-            Clip audioClip = (Clip) AudioSystem.getLine(info);
+            audioClip = (Clip) AudioSystem.getLine(info);
             audioClip.loop(Clip.LOOP_CONTINUOUSLY);
             audioClip.open(audioStream);
             audioClip.start();
@@ -47,6 +49,15 @@ public class AudioPlayback {
             soundEffect.open(soundEffectStream);
             soundEffect.start();
         } catch (IOException | LineUnavailableException | UnsupportedAudioFileException ex) {
+            Logger.getLogger(AudioPlayback.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public static void closeBackgroundMusic() {
+        try {
+            audioStream.close();
+            audioClip.close();
+        } catch (IOException ex) {
             Logger.getLogger(AudioPlayback.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

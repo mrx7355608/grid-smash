@@ -15,7 +15,6 @@ public class GameFrame extends JFrame {
     public GameFrame(int level) {
         setTitle("Brick Breaker");
         super.setResizable(false);
-        super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         super.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
         super.setLocationRelativeTo(null);
         super.setIconImage(new ImageIcon("src/assets/icon.png").getImage());

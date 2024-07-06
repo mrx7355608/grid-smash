@@ -4,7 +4,8 @@
  */
 package gridsmash;
 
-import brickbreaker.screens.MainMenuScreen;
+import brickbreaker.screens.BrickBreakerMainMenuScreen;
+import tictactoe.gui.TicTacToeMainMenu;
 
 /**
  *
@@ -116,11 +117,11 @@ public class MainScreen extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        new TicTacToeMainMenu().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        new MainMenuScreen().setVisible(true);
+        new BrickBreakerMainMenuScreen().setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
 
