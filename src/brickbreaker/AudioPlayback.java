@@ -19,22 +19,19 @@ public class AudioPlayback {
 
     public static void playMusic() {
         try {
-            audioStream = AudioSystem.getAudioInputStream(new File("src/assets/break.wav"));
+            audioStream = AudioSystem.getAudioInputStream(new File("src/assets/bg-music.wav"));
             AudioFormat format = audioStream.getFormat();
             DataLine.Info info = new DataLine.Info(Clip.class, format);
             audioClip = (Clip) AudioSystem.getLine(info);
-            audioClip.loop(Clip.LOOP_CONTINUOUSLY);
             audioClip.open(audioStream);
+            audioClip.loop(Clip.LOOP_CONTINUOUSLY);
             audioClip.start();
         } catch (UnsupportedAudioFileException ex) {
             System.out.println("File not supported");
-            ex.printStackTrace();
         } catch (LineUnavailableException ex) {
             System.out.println("Audio line is unavailable");
-            ex.printStackTrace();
         } catch (IOException ex) {
             System.out.println("Unable to open file");
-            ex.printStackTrace();
         }
     }
 
