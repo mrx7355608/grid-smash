@@ -22,8 +22,10 @@ public class GamePanel extends JPanel implements ActionListener {
     private final BackgroundImageLabel backgroundImageLabel;
     private final Timer timer;
     private final Settings gameSettings;
+    private final int level;
 
     public GamePanel(int level) {
+        this.level = level;
         super.setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
         super.setLayout(new BorderLayout());
 
@@ -113,10 +115,11 @@ public class GamePanel extends JPanel implements ActionListener {
         if (ball.y >= 500) {
             timer.stop();
             AudioPlayback.closeBackgroundMusic();
+            
             JFrame frame = new JFrame();
             frame.setTitle("Settings");
             frame.setSize(760, 400);
-            frame.add(new GameOverSc());
+            frame.add(new GameOverSc(this.level));
             frame.setLocationRelativeTo(null);
             frame.setVisible(true);
         }

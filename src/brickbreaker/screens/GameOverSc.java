@@ -5,16 +5,22 @@
 
 package brickbreaker.screens;
 
+import brickbreaker.gui.GameFrame;
+
 /**
  *
  * @author Ansari
  */
 public class GameOverSc extends javax.swing.JPanel {
+    
+    private final int level;
 
     /**
      * Creates new form GameOverSc
+     * @param currentLevel - int
      */
-    public GameOverSc() {
+    public GameOverSc(int currentLevel) {
+        this.level = currentLevel;
         initComponents();
     }
 
@@ -36,13 +42,27 @@ public class GameOverSc extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/bb-gameover.png"))); // NOI18N
 
+        jButton1.setBackground(new java.awt.Color(204, 204, 204));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/bb-retry.png"))); // NOI18N
         jButton1.setText("Restart");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
+        jButton2.setBackground(new java.awt.Color(204, 204, 204));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/bb-quit.png"))); // NOI18N
         jButton2.setText("Quit");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -74,6 +94,14 @@ public class GameOverSc extends javax.swing.JPanel {
                         .addContainerGap())))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        new GameFrame(this.level).setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
