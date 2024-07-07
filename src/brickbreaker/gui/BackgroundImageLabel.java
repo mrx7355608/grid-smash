@@ -18,8 +18,9 @@ public class BackgroundImageLabel extends JLabel {
         // Load background image
         Image backgroundImage;
         try {
-            backgroundImage = ImageIO.read(new File("src/assets/bg.jpg"));
+            backgroundImage = ImageIO.read(new File("src/assets/bg.jpeg")).getScaledInstance(900, 500, Image.SCALE_SMOOTH);
             super.setIcon(new ImageIcon(backgroundImage));
+            super.setHorizontalAlignment(JLabel.CENTER);
         } catch (IOException ex) {
             System.out.println("[ERROR] Unable to load background image");
         }
