@@ -69,7 +69,7 @@ public class Ball extends JButton {
 
             } // CHECK COLLISIONS WITH LEFT SIDE OF THE BASE
             else if (this.x + this.getBALL_WIDTH() >= base.x
-                    && this.x + this.getBALL_WIDTH() <= base.x + base.getBASE_WIDTH() / 4
+                    && this.x + this.getBALL_WIDTH() <= base.x + base.getBASE_WIDTH() / 5
                     && this.y >= base.y
                     && this.y <= base.y + base.getBASE_HEIGHT()) {
                 this.yVelocity *= -1;
@@ -77,7 +77,7 @@ public class Ball extends JButton {
 
             } // CHECK COLLISIONS WITH RIGHT SIDE OF THE BASE (!!! Not tested yet !!!)
             else if (this.x <= base.x + base.getBASE_WIDTH()
-                    && this.x >= base.x + base.getBASE_WIDTH() - base.getBASE_WIDTH() / 4
+                    && this.x >= base.x + base.getBASE_WIDTH() - base.getBASE_WIDTH() / 5
                     && this.y + this.getBALL_HEIGHT() >= base.y
                     && this.y + this.getBALL_HEIGHT() <= base.y + base.getBASE_HEIGHT()) {
                 this.yVelocity *= -1;
@@ -97,14 +97,14 @@ public class Ball extends JButton {
             if (this.x >= bounds.x
                     && this.x <= bounds.x + bounds.width
                     && this.y <= bounds.y + bounds.height
-                    && this.y >= bounds.y) {
+                    && this.y >= bounds.y + bounds.height - 5) {
                 System.out.println("Brick bottom collided");
                 iterator.remove();
                 this.yVelocity *= -1;
                 return brick;
             } // BALL'S RIGHT SIDE --> BRICK'S LEFT SIDE
             else if (this.x + this.BALL_WIDTH >= bounds.x
-                    && this.x + this.BALL_WIDTH <= bounds.x + 5
+                    && this.x + this.BALL_WIDTH <= bounds.x + 2
                     && this.y > bounds.y
                     && this.y < bounds.y + bounds.height) {
                 System.out.println("Brick left collided");
