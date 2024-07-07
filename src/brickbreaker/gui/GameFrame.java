@@ -18,7 +18,7 @@ public class GameFrame extends JFrame {
         super.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
         super.setLocationRelativeTo(null);
         super.setIconImage(new ImageIcon("src/assets/icon.png").getImage());
-        super.add(new GamePanel(level));
+        super.add(new GamePanel(level, this));
         
         // Game settings
         gameSettings = Settings.getInstance();

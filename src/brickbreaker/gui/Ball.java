@@ -124,7 +124,7 @@ public class Ball extends JButton {
             else if (this.x >= bounds.x
                     && this.x <= bounds.x + bounds.width
                     && this.y + this.BALL_HEIGHT >= bounds.y
-                    && this.y + this.BALL_HEIGHT <= bounds.y + bounds.height) {
+                    && this.y + this.BALL_HEIGHT <= bounds.y + 5) {
                 System.out.println("Brick top collided");
                 iterator.remove();
                 this.yVelocity *= -1;

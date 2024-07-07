@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -24,9 +25,11 @@ public class GamePanel extends JPanel implements ActionListener {
     private final Settings gameSettings;
     private final int level;
     private final Levels gameLevels;
+    private final JFrame gameWindow;
 
-    public GamePanel(int level) {
+    public GamePanel(int level, JFrame gameWindow) {
         this.level = level;
+        this.gameWindow = gameWindow;
         super.setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
         super.setLayout(new BorderLayout());
 
@@ -105,6 +108,13 @@ public class GamePanel extends JPanel implements ActionListener {
         }
 
         this.checkGameover();
+        
+        if (this.bricks.isEmpty()) {
+            timer.stop();
+            AudioPlayback.closeBackgroundMusic();
+            this.gameWindow.dispose();
+            JOptionPane.showMessageDialog(this, "Level completed");
+        }
     }
 
     /**
@@ -118,11 +128,12 @@ public class GamePanel extends JPanel implements ActionListener {
         if (ball.y >= 500) {
             timer.stop();
             AudioPlayback.closeBackgroundMusic();
+            this.gameWindow.dispose();
             
             JFrame frame = new JFrame();
             frame.setTitle("Gameover");
             frame.setSize(760, 400);
-            frame.add(new GameOverSc(this.level));
+            frame.add(new GameOverSc(this.level, frame));
             frame.setLocationRelativeTo(null);
             frame.setVisible(true);
         }
