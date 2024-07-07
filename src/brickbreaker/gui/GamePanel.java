@@ -23,12 +23,15 @@ public class GamePanel extends JPanel implements ActionListener {
     private final Timer timer;
     private final Settings gameSettings;
     private final int level;
+    private final Levels gameLevels;
 
     public GamePanel(int level) {
         this.level = level;
         super.setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
         super.setLayout(new BorderLayout());
 
+        
+        gameLevels = new Levels();
         backgroundImageLabel = new BackgroundImageLabel();
         base = new Base();
         ball = new Ball();
@@ -37,31 +40,31 @@ public class GamePanel extends JPanel implements ActionListener {
 
         switch (level) {
             case 1 -> {
-                for (Brick brick : Levels.createLevelOneBrickPattern()) {
+                for (Brick brick : gameLevels.createLevelOneBrickPattern()) {
                     bricks.add(brick);
                     backgroundImageLabel.add(brick);
                 }
             }
             case 2 -> {
-                for (Brick brick : Levels.createLevelTwoBrickPattern()) {
+                for (Brick brick : gameLevels.createLevelTwoBrickPattern()) {
                     bricks.add(brick);
                     backgroundImageLabel.add(brick);
                 }
             }
             case 3 -> {
-                for (Brick brick : Levels.createLevelThreeBrickPattern()) {
+                for (Brick brick : gameLevels.createLevelThreeBrickPattern()) {
                     bricks.add(brick);
                     backgroundImageLabel.add(brick);
                 }
             }
             case 4 -> {
-                for (Brick brick : Levels.createLevelFourBrickPattern()) {
+                for (Brick brick : gameLevels.createLevelFourBrickPattern()) {
                     bricks.add(brick);
                     backgroundImageLabel.add(brick);
                 }
             }
             case 5 -> {
-                for (Brick brick : Levels.createLevelFiveBrickPattern()) {
+                for (Brick brick : gameLevels.createLevelFiveBrickPattern()) {
                     bricks.add(brick);
                     backgroundImageLabel.add(brick);
                 }
@@ -117,7 +120,7 @@ public class GamePanel extends JPanel implements ActionListener {
             AudioPlayback.closeBackgroundMusic();
             
             JFrame frame = new JFrame();
-            frame.setTitle("Settings");
+            frame.setTitle("Gameover");
             frame.setSize(760, 400);
             frame.add(new GameOverSc(this.level));
             frame.setLocationRelativeTo(null);

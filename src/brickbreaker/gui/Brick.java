@@ -12,7 +12,7 @@ public class Brick extends JButton {
 
     public Brick(ImageIcon brickImage) {
         super.setPreferredSize(new Dimension(BRICK_WIDTH, BRICK_HEIGHT));
-        super.setBorderPainted(true);
+        super.setBorderPainted(false);
         super.setFocusable(false);
         
         if (brickImage != null) {
