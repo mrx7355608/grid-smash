@@ -1,6 +1,7 @@
 
 package brickbreaker.gui;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
@@ -13,7 +14,7 @@ import javax.swing.JButton;
 
 public class Base extends JButton implements KeyListener {
     private final int BASE_WIDTH = 130;
-    private final int BASE_HEIGHT = 15;
+    private final int BASE_HEIGHT = 20;
     public int x = 325;
     public int y = 400;
     public int velocity = 0;
@@ -26,11 +27,13 @@ public class Base extends JButton implements KeyListener {
         super.setBorderPainted(false);
         super.setFocusable(true);
         super.addKeyListener(this);
+        super.setBackground(new Color(255,255,255,0));
+        super.setOpaque(true);
         
         // Load base image
         Image baseImage;
         try {
-            baseImage = ImageIO.read(new File("src/assets/base2.jpg")).getScaledInstance(BASE_WIDTH, BASE_HEIGHT, Image.SCALE_SMOOTH);
+            baseImage = ImageIO.read(new File("src/assets/base.png")).getScaledInstance(BASE_WIDTH, BASE_HEIGHT, Image.SCALE_SMOOTH);
             super.setIcon(new ImageIcon(baseImage));
         } catch (IOException ex) {
             System.out.println("[ERROR] Unable to load base image");

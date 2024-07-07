@@ -5,10 +5,13 @@
         <group>
             <file>file:/C:/Users/fawad/Documents/NetBeansProjects/GridSmash/src/tictactoe/gui/TicTacToeMainMenu.java</file>
             <file>file:/C:/Users/fawad/Documents/NetBeansProjects/GridSmash/src/tictactoe/gui/GameGUI.java</file>
-            <file>file:/C:/Users/fawad/Documents/NetBeansProjects/GridSmash/src/tictactoe/gui/GameOver.java</file>
+            <file>file:/C:/Users/fawad/Documents/NetBeansProjects/GridSmash/src/brickbreaker/screens/GameOverSc.java</file>
             <file>file:/C:/Users/fawad/Documents/NetBeansProjects/GridSmash/src/brickbreaker/screens/BrickBreakerMainMenuScreen.java</file>
             <file>file:/C:/Users/fawad/Documents/NetBeansProjects/GridSmash/src/tictactoe/gui/ButtonGUI.java</file>
+            <file>file:/C:/Users/fawad/Documents/NetBeansProjects/GridSmash/src/brickbreaker/AudioPlayback.java</file>
             <file>file:/C:/Users/fawad/Documents/NetBeansProjects/GridSmash/src/gridsmash/MainScreen.java</file>
+            <file>file:/C:/Users/fawad/Documents/NetBeansProjects/GridSmash/src/brickbreaker/gui/GamePanel.java</file>
+            <file>file:/C:/Users/fawad/Documents/NetBeansProjects/GridSmash/src/brickbreaker/gui/GameFrame.java</file>
         </group>
     </open-files>
 </project-private>
