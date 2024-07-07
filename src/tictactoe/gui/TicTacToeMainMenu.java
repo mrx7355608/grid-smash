@@ -11,11 +11,10 @@ package tictactoe.gui;
 public class TicTacToeMainMenu extends javax.swing.JFrame {
 
     /**
-     * Creates new form MainMenu
+     * Creates new form TicTacToeMainMenu
      */
     public TicTacToeMainMenu() {
         initComponents();
-        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -28,27 +27,48 @@ public class TicTacToeMainMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        playerVsPlayerButton = new javax.swing.JButton();
-        playerVsComputerButton = new javax.swing.JButton();
-        quitButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        pvpButton = new javax.swing.JButton();
+        pvaButton = new javax.swing.JButton();
+        quitButton = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Tic Tac Toe");
+        setLocationByPlatform(true);
+        setPreferredSize(new java.awt.Dimension(500, 500));
+        setSize(new java.awt.Dimension(500, 500));
 
-        playerVsPlayerButton.setText("Player vs Player");
-        playerVsPlayerButton.addActionListener(new java.awt.event.ActionListener() {
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 0, 153), 3));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 0, 153));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Tic Tac Toe");
+
+        pvpButton.setBackground(new java.awt.Color(51, 0, 153));
+        pvpButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        pvpButton.setForeground(new java.awt.Color(255, 255, 255));
+        pvpButton.setText("Player vs Player");
+        pvpButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                playerVsPlayerButtonActionPerformed(evt);
+                pvpButtonActionPerformed(evt);
             }
         });
 
-        playerVsComputerButton.setText("Player vs Computer");
-        playerVsComputerButton.addActionListener(new java.awt.event.ActionListener() {
+        pvaButton.setBackground(new java.awt.Color(51, 0, 153));
+        pvaButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        pvaButton.setForeground(new java.awt.Color(255, 255, 255));
+        pvaButton.setText("Player vs AI");
+        pvaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                playerVsComputerButtonActionPerformed(evt);
+                pvaButtonActionPerformed(evt);
             }
         });
 
+        quitButton.setBackground(new java.awt.Color(153, 153, 255));
+        quitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        quitButton.setForeground(new java.awt.Color(0, 0, 0));
         quitButton.setText("Quit");
         quitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,42 +76,31 @@ public class TicTacToeMainMenu extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel1.setText("TIC TAC TOE");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(119, Short.MAX_VALUE)
+                .addGap(157, 157, 157)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(playerVsComputerButton)
-                        .addGap(129, 129, 129))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(playerVsPlayerButton)
-                        .addGap(139, 139, 139))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(82, 82, 82))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(164, 164, 164)
-                .addComponent(quitButton)
-                .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(pvpButton, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pvaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(quitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(165, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(51, 51, 51)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(57, 57, 57)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
-                .addComponent(playerVsPlayerButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(playerVsComputerButton)
-                .addGap(12, 12, 12)
-                .addComponent(quitButton)
-                .addGap(35, 35, 35))
+                .addGap(95, 95, 95)
+                .addComponent(pvpButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(pvaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(quitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(104, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -112,14 +121,13 @@ public class TicTacToeMainMenu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_quitButtonActionPerformed
 
-    private void playerVsPlayerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playerVsPlayerButtonActionPerformed
-        new GameGUI("player-vs-player").setVisible(true);
-    }//GEN-LAST:event_playerVsPlayerButtonActionPerformed
-
-    private void playerVsComputerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playerVsComputerButtonActionPerformed
-        
+    private void pvaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pvaButtonActionPerformed
         new GameGUI("player-vs-ai").setVisible(true);
-    }//GEN-LAST:event_playerVsComputerButtonActionPerformed
+    }//GEN-LAST:event_pvaButtonActionPerformed
+
+    private void pvpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pvpButtonActionPerformed
+        new GameGUI("player-vs-player").setVisible(true);
+    }//GEN-LAST:event_pvpButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -132,7 +140,7 @@ public class TicTacToeMainMenu extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
+                if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -147,9 +155,6 @@ public class TicTacToeMainMenu extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(TicTacToeMainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -162,8 +167,8 @@ public class TicTacToeMainMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton playerVsComputerButton;
-    private javax.swing.JButton playerVsPlayerButton;
+    private javax.swing.JButton pvaButton;
+    private javax.swing.JButton pvpButton;
     private javax.swing.JButton quitButton;
     // End of variables declaration//GEN-END:variables
 }
